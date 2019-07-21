@@ -1,11 +1,9 @@
 import React from "react"
 import { Link } from "gatsby"
-
 import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
+import { graphql } from "gatsby"
 
-const IndexPage = ({ data }) => (
+const BlogPage = ({ data }) => (
   <div>
     <Layout>
       <h1>Latest Posts</h1>
@@ -31,22 +29,22 @@ const IndexPage = ({ data }) => (
   </div>
 )
 
-export const relationshipWithGodQuery = graphql`
-  query RelationshipWithGodQuery {
-      allMarkdownRemark(skip:2) {
-        edges {
-          node {
-            frontmatter {
-              path
-              title
-              date
-              author
-            }
-            excerpt
+export const pageQuery = graphql`
+  query BlogIndexQuery {
+    allMarkdownRemark {
+      edges {
+        node {
+          id
+          frontmatter {
+            path
+            title
+            date
+            author
           }
         }
       }
+    }
   }
-`;
+`
 
-export default IndexPage
+export default BlogPage
