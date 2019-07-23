@@ -9,7 +9,6 @@ export default function Template({ data }) {
   return (
     <div>
       <Layout>
-        <hr />
         <h1>{post.frontmatter.title}</h1>
         <h4>
           Posted by {post.frontmatter.author} on {post.frontmatter.date}{" "}

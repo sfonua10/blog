@@ -1,8 +1,10 @@
 module.exports = {
   siteMetadata: {
-    title: `Saia Fonua Blog`,
+    title: `Gospel Insights`,
+    subTitle: `Personal blog by `,
+    subTitle2: `Gospel perspective & food for thought`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    author: `Saia Fonua`
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

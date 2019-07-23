@@ -22,7 +22,6 @@ const IndexPage = ({ data }) => (
             {post.node.frontmatter.description}
             <br />
             <br />
-            <hr />
           </div>
         </Link>
         </div>

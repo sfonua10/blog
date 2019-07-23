@@ -10,7 +10,7 @@ import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
-import Menu from "./menu"
+import Aside from "./aside"
 import "./layout.css"
 
 const Layout = ({ children }) => (
@@ -19,7 +19,10 @@ const Layout = ({ children }) => (
       query SiteTitleQuery {
         site {
           siteMetadata {
-            title
+            author,
+            title,
+            subTitle,
+            subTitle2
           }
         }
       }
@@ -27,7 +30,7 @@ const Layout = ({ children }) => (
     render={data => (
       <React.Fragment>
         <Header siteTitle={data.site.siteMetadata.title} />
-        <Menu />
+        <Aside author={data.site.siteMetadata.author} subTitle={data.site.siteMetadata.subTitle} subTitle2={data.site.siteMetadata.subTitle2}/>
         <div
           style={{
             margin: `0 auto`,
