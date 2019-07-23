@@ -2,7 +2,6 @@ import React from "react"
 import { Link } from "gatsby"
 import Layout from "../components/layout"
 import { graphql } from "gatsby"
-import { runInDebugContext } from "vm";
 
 const BlogPage = ({ data }) => (
   <div
@@ -21,8 +20,9 @@ const BlogPage = ({ data }) => (
           }}
         >
           <header>
-            <h3 key={post.node.id} style={{fontFamily: `Montserrat`,
+            <h3 key={post.node.id} style={{fontFamily: `Montserrat, sanSerif`,
               fontSize: `1.75rem`,
+              fontWeight: 900,
               marginBottom: `0.4375rem`,
               marginTop: `3.5rem`}}>
               <Link to={post.node.frontmatter.path} style={{color:`#0074D9`}}>
