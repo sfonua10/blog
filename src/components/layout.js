@@ -19,9 +19,9 @@ const Layout = ({ children }) => (
       query SiteTitleQuery {
         site {
           siteMetadata {
-            author,
-            title,
-            subTitle,
+            author
+            title
+            subTitle
             subTitle2
           }
         }
@@ -30,15 +30,12 @@ const Layout = ({ children }) => (
     render={data => (
       <React.Fragment>
         <Header siteTitle={data.site.siteMetadata.title} />
-        <Aside author={data.site.siteMetadata.author} subTitle={data.site.siteMetadata.subTitle} subTitle2={data.site.siteMetadata.subTitle2}/>
-        <div
-          style={{
-            margin: `0 auto`,
-            maxWidth: 650,
-            padding: `0px 1.0875rem 1.45rem`,
-            paddingTop: 0,
-          }}
-        >
+        <Aside
+          author={data.site.siteMetadata.author}
+          subTitle={data.site.siteMetadata.subTitle}
+          subTitle2={data.site.siteMetadata.subTitle2}
+        />
+        <div>
           <main>{children}</main>
         </div>
       </React.Fragment>

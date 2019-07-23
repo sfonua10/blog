@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import Layout from "../components/layout"
 import { graphql } from "gatsby"
+import { runInDebugContext } from "vm";
 
 const BlogPage = ({ data }) => (
   <div
@@ -14,28 +15,26 @@ const BlogPage = ({ data }) => (
   >
     <Layout>
       {data.allMarkdownRemark.edges.map(post => (
-        <div
+        <article
           style={{
-            border: "1px solid black",
-            boxShadow: "1px 1px 0px #c2c2c2",
             cursor: "pointer",
           }}
         >
-          <Link to={post.node.frontmatter.path}>
-            {console.log(data)}
-            <div key={post.node.id}>
-              <div style={{ fontSize: "1.125rem", marginBottom: "0.25rem" }}>
+          <header>
+            <h3 key={post.node.id} style={{fontFamily: `Montserrat`,
+              fontSize: `1.75rem`,
+              marginBottom: `0.4375rem`,
+              marginTop: `3.5rem`}}>
+              <Link to={post.node.frontmatter.path} style={{color:`#0074D9`}}>
                 {post.node.frontmatter.title}
-              </div>
-              <small>
-                {post.node.frontmatter.author} | {post.node.frontmatter.date}
-              </small>
-              {post.node.frontmatter.description}
-              <br />
-              <br />
-            </div>
-          </Link>
-        </div>
+              </Link>
+            </h3>
+            <small>
+              {post.node.frontmatter.author} | {post.node.frontmatter.date}
+            </small>
+            {post.node.frontmatter.description}
+          </header>
+        </article>
       ))}
     </Layout>
   </div>
