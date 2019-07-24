@@ -1,61 +1,51 @@
 import React from "react"
 import { Link } from "gatsby"
-import Layout from "../components/layout"
-import { graphql } from "gatsby"
 
-const BlogPage = ({ data }) => (
-  <div
-    style={{
-      marginLeft: `auto`,
-      marginRight: `auto`,
-      maxWidth: `42rem`,
-      padding: `2.625rem 1.3125rem`,
-    }}
-  >
+import Layout from "../components/layout"
+import Image from "../components/image"
+import SEO from "../components/seo"
+
+const IndexPage = ({ data }) => (
+  <div>
     <Layout>
+      <h1>Latest Posts</h1>
       {data.allMarkdownRemark.edges.map(post => (
-        <article
-          style={{
-            cursor: "pointer",
-          }}
-        >
-          <header>
-            <h3 key={post.node.id} style={{fontFamily: `Montserrat, sanSerif`,
-              fontSize: `1.75rem`,
-              fontWeight: 900,
-              marginBottom: `0.4375rem`,
-              marginTop: `3.5rem`}}>
-              <Link to={post.node.frontmatter.path} style={{color:`#0074D9`}}>
-                {post.node.frontmatter.title}
-              </Link>
-            </h3>
+        <div style={{"border":"1px solid black","boxShadow":"1px 1px 0px #c2c2c2","cursor":"pointer"}}>
+        <Link to={post.node.frontmatter.path}>{console.log(data)        }
+          <div key={post.node.id}>
+            <div style={{ fontSize: "1.125rem", marginBottom: "0.25rem" }}>
+              {post.node.frontmatter.title}
+            </div>
             <small>
               {post.node.frontmatter.author} | {post.node.frontmatter.date}
             </small>
             {post.node.frontmatter.description}
-          </header>
-        </article>
+            <br />
+            <br />
+          </div>
+        </Link>
+        </div>
       ))}
     </Layout>
   </div>
 )
 
-export const pageQuery = graphql`
-  query BlogIndexQuery {
-    allMarkdownRemark {
-      edges {
-        node {
-          id
-          frontmatter {
-            path
-            title
-            date
-            author
+export const relationshipWithGodQuery = graphql`
+  query RelationshipWithGodQuery {
+      allMarkdownRemark(skip:2) {
+        edges {
+          node {
+            frontmatter {
+              path
+              title
+              date
+              author
+            }
+            excerpt
           }
         }
       }
-    }
   }
-`
+`;
 
-export default BlogPage
+export default IndexPage
