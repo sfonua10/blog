@@ -28,7 +28,14 @@ const Layout = ({ children }) => (
       }
     `}
     render={data => (
-      <React.Fragment>
+      <div
+        style={{
+          marginLeft: `auto`,
+          marginRight: `auto`,
+          maxWidth: `42rem`,
+          padding: `2.625rem 1.3125rem`,
+        }}
+      >
         <Header siteTitle={data.site.siteMetadata.title} />
         <Aside
           author={data.site.siteMetadata.author}
@@ -38,7 +45,7 @@ const Layout = ({ children }) => (
         <div>
           <main>{children}</main>
         </div>
-      </React.Fragment>
+      </div>
     )}
   />
 )

@@ -5,12 +5,7 @@ import { graphql } from "gatsby"
 
 const BlogPage = ({ data }) => (
   <div
-    style={{
-      marginLeft: `auto`,
-      marginRight: `auto`,
-      maxWidth: `42rem`,
-      padding: `2.625rem 1.3125rem`,
-    }}
+
   >
     <Layout>
       {data.allMarkdownRemark.edges.map(post => (
